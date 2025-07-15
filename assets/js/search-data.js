@@ -81,11 +81,6 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/we/";
-            },},{id: "books-il-barone-rampante-树上的男爵",
-          title: 'Il barone rampante (树上的男爵)',
-          description: "",
-          section: "Books",handler: () => {
-              window.location.href = "/books/baron_in_tree/";
             },},{id: "books-the-road-to-serfdom-通往奴役之路",
           title: 'The Road to Serfdom (通往奴役之路)',
           description: "",
@@ -101,6 +96,21 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/Coalition_Government_and_One-Party_Tutelage/";
+            },},{id: "books-il-barone-rampante-树上的男爵",
+          title: 'Il barone rampante (树上的男爵)',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/baron_in_tree/";
+            },},{id: "books-东晋门阀政治",
+          title: '东晋门阀政治',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/eastern_jin/";
+            },},{id: "books-党员-党权与党争",
+          title: '党员、党权与党争',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/party_struggle/";
             },},{
         id: 'social-email',
         title: 'email',
