@@ -111,6 +111,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/party_struggle/";
+            },},{id: "books-中县干部",
+          title: '中县干部',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/zhong_county/";
             },},{
         id: 'social-email',
         title: 'email',
