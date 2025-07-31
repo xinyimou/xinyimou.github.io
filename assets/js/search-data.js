@@ -116,6 +116,16 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/zhong_county/";
+            },},{id: "books-沉默的大多数",
+          title: '沉默的大多数',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/silence/";
+            },},{id: "books-围城",
+          title: '围城',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/weicheng/";
             },},{
         id: 'social-email',
         title: 'email',
