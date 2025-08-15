@@ -126,6 +126,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/weicheng/";
+            },},{id: "books-废都",
+          title: '废都',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/ruined_city/";
             },},{
         id: 'social-email',
         title: 'email',
