@@ -131,6 +131,16 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/ruined_city/";
+            },},{id: "books-蛙",
+          title: '蛙',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/frog/";
+            },},{id: "books-檀香刑",
+          title: '檀香刑',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/sandalwood_death/";
             },},{
         id: 'social-email',
         title: 'email',
