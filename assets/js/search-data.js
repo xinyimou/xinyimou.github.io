@@ -136,6 +136,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/frog/";
+            },},{id: "books-воскресение-复活",
+          title: 'Воскресение (复活)',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/resurrection/";
             },},{id: "books-檀香刑",
           title: '檀香刑',
           description: "",
