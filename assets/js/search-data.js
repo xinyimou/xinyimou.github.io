@@ -146,6 +146,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/sandalwood_death/";
+            },},{id: "books-苏东坡传",
+          title: '苏东坡传',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/sudongpo/";
             },},{
         id: 'social-email',
         title: 'email',
