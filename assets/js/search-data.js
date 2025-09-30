@@ -106,11 +106,6 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/eastern_jin/";
-            },},{id: "books-党员-党权与党争",
-          title: '党员、党权与党争',
-          description: "",
-          section: "Books",handler: () => {
-              window.location.href = "/books/party_struggle/";
             },},{id: "books-中县干部",
           title: '中县干部',
           description: "",
@@ -151,6 +146,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/sudongpo/";
+            },},{id: "books-党员-党权与党争",
+          title: '党员、党权与党争',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/party_struggle/";
             },},{
         id: 'social-email',
         title: 'email',
