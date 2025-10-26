@@ -151,6 +151,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/party_struggle/";
+            },},{id: "books-gravity-39-s-rainbow-万有引力之虹",
+          title: 'Gravity&amp;#39;s Rainbow (万有引力之虹)',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/gravity_s_rainbow/";
             },},{
         id: 'social-email',
         title: 'email',
