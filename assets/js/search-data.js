@@ -61,6 +61,26 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/guns_germs_and_steel/";
+            },},{id: "books-преступление-и-наказание-罪与罚",
+          title: 'преступление и наказание (罪与罚)',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/crime_punishment/";
+            },},{id: "books-la-peste-鼠疫",
+          title: 'La Peste (鼠疫)',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/plague/";
+            },},{id: "books-siddhartha-悉达多",
+          title: 'Siddhartha (悉达多)',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/siddhartha/";
+            },},{id: "books-l-39-étranger-局外人",
+          title: 'L&amp;#39;Étranger (局外人)',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/stranger/";
             },},{id: "books-river-town-江城",
           title: 'River Town (江城)',
           description: "",
