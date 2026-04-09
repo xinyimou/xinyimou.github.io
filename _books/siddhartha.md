@@ -4,10 +4,10 @@ title: Siddhartha (悉达多)
 author: Hermann Hesse
 cover: assets/img/book_covers/siddhartha.jpg
 categories: novel fiction
-started: 2025-2-8
+started: 2026-2-8
 finished: Now
 status: Queued
-date: 2025-2-8
+date: 2026-2-8
 ---
 
 **缓慢阅读中**
