@@ -61,26 +61,6 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/guns_germs_and_steel/";
-            },},{id: "books-преступление-и-наказание-罪与罚",
-          title: 'преступление и наказание (罪与罚)',
-          description: "",
-          section: "Books",handler: () => {
-              window.location.href = "/books/crime_punishment/";
-            },},{id: "books-la-peste-鼠疫",
-          title: 'La Peste (鼠疫)',
-          description: "",
-          section: "Books",handler: () => {
-              window.location.href = "/books/plague/";
-            },},{id: "books-siddhartha-悉达多",
-          title: 'Siddhartha (悉达多)',
-          description: "",
-          section: "Books",handler: () => {
-              window.location.href = "/books/siddhartha/";
-            },},{id: "books-l-39-étranger-局外人",
-          title: 'L&amp;#39;Étranger (局外人)',
-          description: "",
-          section: "Books",handler: () => {
-              window.location.href = "/books/stranger/";
             },},{id: "books-river-town-江城",
           title: 'River Town (江城)',
           description: "",
@@ -176,6 +156,36 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/gravity_s_rainbow/";
+            },},{id: "books-преступление-и-наказание-罪与罚",
+          title: 'преступление и наказание (罪与罚)',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/crime_punishment/";
+            },},{id: "books-la-peste-鼠疫",
+          title: 'La Peste (鼠疫)',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/plague/";
+            },},{id: "books-siddhartha-悉达多",
+          title: 'Siddhartha (悉达多)',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/siddhartha/";
+            },},{id: "books-l-39-étranger-局外人",
+          title: 'L&amp;#39;Étranger (局外人)',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/stranger/";
+            },},{id: "books-两京十五日",
+          title: '两京十五日',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/2_capital/";
+            },},{id: "books-秦腔",
+          title: '秦腔',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/qinqiang/";
             },},{
         id: 'social-email',
         title: 'email',
