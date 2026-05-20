@@ -1,0 +1,183 @@
+---
+layout: page
+---
+
+{{ content }}
+
+<div class="readings-container">
+  {% assign all_books = site.data.readings %}
+
+  <!-- Stats bar -->
+  <div class="readings-stats">
+    {% assign finished_count = all_books | where: 'status', 'Finished' | size %}
+    {% assign reading_count = all_books | where: 'status', 'Reading' | size %}
+    {% assign queued_count = all_books | where: 'status', 'Queued' | size %}
+    <span class="stat-item"><span class="stat-number">{{ all_books.size }}</span> 本总计</span>
+    <span class="stat-divider">·</span>
+    <span class="stat-item stat-finished"><span class="stat-number">{{ finished_count }}</span> 已读</span>
+    <span class="stat-divider">·</span>
+    <span class="stat-item stat-reading"><span class="stat-number">{{ reading_count }}</span> 在读</span>
+    <span class="stat-divider">·</span>
+    <span class="stat-item stat-queued"><span class="stat-number">{{ queued_count }}</span> 待读</span>
+  </div>
+
+  <!-- Filter buttons -->
+  <div class="readings-filter">
+    <button class="filter-btn active" data-filter="all">全部</button>
+    <button class="filter-btn" data-filter="Finished">已读</button>
+    <button class="filter-btn" data-filter="Reading">在读</button>
+    <button class="filter-btn" data-filter="Queued">待读</button>
+  </div>
+
+  <!-- Year tabs -->
+  <div class="readings-year-tabs">
+    {% comment %}Collect unique years from started dates{% endcomment %}
+    {% assign years = "" | split: "" %}
+    {% for book in all_books %}
+      {% if book.started and book.started != "" %}
+        {% assign yr = book.started | slice: 0, 4 %}
+        {% unless years contains yr %}
+          {% assign years = years | push: yr %}
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
+    {% assign years = years | sort | reverse %}
+    <button class="year-tab active" data-year="all">全部年份</button>
+    {% for yr in years %}
+      <button class="year-tab" data-year="{{ yr }}">{{ yr }}</button>
+    {% endfor %}
+  </div>
+
+  <!-- Table -->
+  <div class="readings-table-wrapper">
+    <table class="readings-table">
+      <thead>
+        <tr>
+          <th class="th-status">状态</th>
+          <th class="th-title">书名</th>
+          <th class="th-author">作者</th>
+          <th class="th-started">开始</th>
+          <th class="th-finished">读完</th>
+          <th class="th-tags">标签</th>
+          <th class="th-review">书评</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for book in all_books %}
+        {% assign book_year = "" %}
+        {% if book.started and book.started != "" %}
+          {% assign book_year = book.started | slice: 0, 4 %}
+        {% endif %}
+        <tr class="book-row" data-status="{{ book.status }}" data-year="{{ book_year }}">
+          <td class="td-status">
+            <span class="status-badge status-{{ book.status | downcase }}">{{ book.status }}</span>
+          </td>
+          <td class="td-title">{{ book.title }}</td>
+          <td class="td-author">{{ book.author }}</td>
+          <td class="td-date">{{ book.started }}</td>
+          <td class="td-date">{{ book.finished }}</td>
+          <td class="td-tags">
+            {% if book.tags and book.tags != '' %}
+              {% assign tag_list = book.tags | split: ',' %}
+              {% for tag in tag_list %}
+                <span class="tag-badge">{{ tag | strip }}</span>
+              {% endfor %}
+            {% endif %}
+          </td>
+          <td class="td-review">
+            {% if book.review and book.review != '' %}
+              <button class="review-toggle" title="展开书评">
+                <i class="fa-solid fa-comment-dots"></i>
+              </button>
+            {% endif %}
+          </td>
+        </tr>
+        {% if book.review and book.review != '' %}
+        <tr class="review-row" data-status="{{ book.status }}" data-year="{{ book_year }}">
+          <td colspan="7" class="td-review-content">
+            <div class="review-content">
+              {{ book.review }}
+            </div>
+          </td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const yearTabs = document.querySelectorAll('.year-tab');
+    const bookRows = document.querySelectorAll('.book-row');
+    const reviewRows = document.querySelectorAll('.review-row');
+    const reviewToggles = document.querySelectorAll('.review-toggle');
+
+    let currentFilter = 'all';
+    let currentYear = 'all';
+
+    function updateVisibility() {
+      bookRows.forEach(row => {
+        const statusMatch = currentFilter === 'all' || row.dataset.status === currentFilter;
+        const yearMatch = currentYear === 'all' || row.dataset.year === currentYear;
+        row.style.display = (statusMatch && yearMatch) ? '' : 'none';
+      });
+      reviewRows.forEach(row => {
+        const statusMatch = currentFilter === 'all' || row.dataset.status === currentFilter;
+        const yearMatch = currentYear === 'all' || row.dataset.year === currentYear;
+        if (statusMatch && yearMatch) {
+          // Only show if not hidden and already expanded
+          if (row.classList.contains('expanded')) {
+            row.style.display = '';
+          } else {
+            row.style.display = 'none';
+          }
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+
+    // Status filter
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        currentFilter = this.dataset.filter;
+        updateVisibility();
+      });
+    });
+
+    // Year tabs
+    yearTabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        yearTabs.forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        currentYear = this.dataset.year;
+        updateVisibility();
+      });
+    });
+
+    // Review toggle
+    reviewToggles.forEach(btn => {
+      btn.addEventListener('click', function() {
+        const bookRow = this.closest('.book-row');
+        const reviewRow = bookRow.nextElementSibling;
+        if (reviewRow && reviewRow.classList.contains('review-row')) {
+          const isExpanded = reviewRow.classList.contains('expanded');
+          if (isExpanded) {
+            reviewRow.classList.remove('expanded');
+            reviewRow.style.display = 'none';
+            this.innerHTML = '<i class="fa-solid fa-comment-dots"></i>';
+          } else {
+            reviewRow.classList.add('expanded');
+            reviewRow.style.display = '';
+            this.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
+          }
+        }
+      });
+    });
+  });
+</script>

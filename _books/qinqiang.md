@@ -6,7 +6,7 @@ cover: assets/img/book_covers/qinqiang.jpg
 categories: novel fiction
 started: 2026-4-8
 finished: Now
-status: Reading
+status: Finished
 date: 2026-4-8
 ---
 

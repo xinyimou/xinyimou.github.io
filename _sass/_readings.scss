@@ -1,0 +1,371 @@
+/*******************************************************************************
+ * Readings table styles - clean spreadsheet-like display
+ ******************************************************************************/
+
+.readings-container {
+  margin-top: 1rem;
+}
+
+/* Stats bar */
+.readings-stats {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--global-text-color);
+  flex-wrap: wrap;
+}
+
+.stat-number {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.stat-divider {
+  color: var(--global-divider-color);
+  margin: 0 0.25rem;
+}
+
+.stat-finished .stat-number {
+  color: var(--global-tip-block, #00ab37);
+}
+
+.stat-reading .stat-number {
+  color: var(--global-warning-block, #f29105);
+}
+
+.stat-queued .stat-number {
+  color: var(--global-text-color);
+  opacity: 0.6;
+}
+
+/* Filter buttons */
+.readings-filter {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.35rem 1rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--global-text-color);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--global-text-color);
+}
+
+.filter-btn.active {
+  background: var(--global-text-color);
+  color: var(--global-bg-color);
+  border-color: var(--global-text-color);
+}
+
+/* Year tabs - spreadsheet sheet style */
+.readings-year-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 0;
+  border-bottom: 2px solid var(--global-text-color);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.readings-year-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.year-tab {
+  padding: 0.5rem 1.2rem;
+  border: 1px solid var(--global-divider-color);
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  background: transparent;
+  color: var(--global-text-color);
+  opacity: 0.55;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  position: relative;
+}
+
+.year-tab:hover {
+  opacity: 0.8;
+  background: var(--global-hover-color, rgba(0, 0, 0, 0.03));
+}
+
+.year-tab.active {
+  opacity: 1;
+  background: var(--global-bg-color);
+  border-color: var(--global-text-color);
+  font-weight: 600;
+  /* Cover the bottom border of the tab bar */
+  box-shadow: 0 2px 0 0 var(--global-bg-color);
+  z-index: 1;
+}
+
+/* Table wrapper */
+.readings-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Main table */
+.readings-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  table-layout: auto;
+}
+
+.readings-table thead {
+  border-bottom: 2px solid var(--global-text-color);
+}
+
+.readings-table th {
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--global-text-color);
+  white-space: nowrap;
+}
+
+.readings-table td {
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid var(--global-divider-color);
+  color: var(--global-text-color);
+  vertical-align: middle;
+}
+
+.readings-table tbody tr.book-row:hover {
+  background-color: var(--global-hover-color, rgba(0, 0, 0, 0.03));
+}
+
+/* Column widths */
+.th-status,
+.td-status {
+  width: 80px;
+  text-align: center;
+}
+
+.th-title,
+.td-title {
+  min-width: 180px;
+  font-weight: 500;
+}
+
+.th-author,
+.td-author {
+  min-width: 140px;
+}
+
+.th-started,
+.th-finished,
+.td-date {
+  width: 100px;
+  white-space: nowrap;
+  font-size: 0.85rem;
+  color: var(--global-text-color);
+  opacity: 0.75;
+}
+
+.th-tags,
+.td-tags {
+  width: 120px;
+}
+
+.th-review,
+.td-review {
+  width: 50px;
+  text-align: center;
+}
+
+/* Status badges */
+.status-badge {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.status-finished {
+  background-color: rgba(0, 171, 55, 0.12);
+  color: #00ab37;
+}
+
+.status-reading {
+  background-color: rgba(242, 145, 5, 0.12);
+  color: #f29105;
+}
+
+.status-queued {
+  background-color: rgba(130, 130, 130, 0.12);
+  color: #828282;
+}
+
+.status-abandoned {
+  background-color: rgba(255, 54, 54, 0.12);
+  color: #ff3636;
+}
+
+.status-paused {
+  background-color: rgba(0, 118, 223, 0.12);
+  color: #0076df;
+}
+
+/* Tag badges */
+.tag-badge {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  background-color: var(--global-card-bg-color, #f0f0f0);
+  color: var(--global-text-color);
+  margin-right: 0.25rem;
+  margin-bottom: 0.15rem;
+  opacity: 0.8;
+}
+
+/* Review toggle button */
+.review-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--global-text-color);
+  opacity: 0.4;
+  font-size: 0.9rem;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.review-toggle:hover {
+  opacity: 0.8;
+  background: var(--global-hover-color, rgba(0, 0, 0, 0.05));
+}
+
+/* Review row */
+.review-row {
+  display: none;
+}
+
+.review-row.expanded {
+  display: table-row;
+}
+
+.td-review-content {
+  padding: 0 !important;
+  border-bottom: 1px solid var(--global-divider-color);
+}
+
+.review-content {
+  padding: 0.8rem 1rem 0.8rem 2rem;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--global-text-color);
+  opacity: 0.85;
+  background: var(--global-hover-color, rgba(0, 0, 0, 0.02));
+  border-left: 3px solid var(--global-divider-color);
+  margin: 0;
+}
+
+/* Dark mode adjustments */
+html[data-theme="dark"] {
+  .status-finished {
+    background-color: rgba(0, 171, 55, 0.2);
+    color: #11d68b;
+  }
+
+  .status-reading {
+    background-color: rgba(242, 145, 5, 0.2);
+    color: #f29105;
+  }
+
+  .status-queued {
+    background-color: rgba(130, 130, 130, 0.2);
+    color: #aaa;
+  }
+
+  .status-abandoned {
+    background-color: rgba(255, 54, 54, 0.2);
+    color: #ff6b6b;
+  }
+
+  .status-paused {
+    background-color: rgba(0, 118, 223, 0.2);
+    color: #4da6ff;
+  }
+
+  .tag-badge {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .readings-table tbody tr.book-row:hover {
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+
+  .review-content {
+    background: rgba(255, 255, 255, 0.03);
+    border-left-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .year-tab:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .year-tab.active {
+    background: var(--global-bg-color);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .readings-table {
+    font-size: 0.82rem;
+  }
+
+  .readings-table th,
+  .readings-table td {
+    padding: 0.5rem 0.4rem;
+  }
+
+  .th-started,
+  .th-finished,
+  .td-date {
+    display: none;
+  }
+
+  .th-tags,
+  .td-tags {
+    display: none;
+  }
+
+  .year-tab {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .review-content {
+    padding: 0.6rem 0.8rem 0.6rem 1rem;
+    font-size: 0.82rem;
+  }
+}
