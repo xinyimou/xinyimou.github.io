@@ -186,6 +186,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/qinqiang/";
+            },},{id: "books-我是猫",
+          title: '我是猫',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/i_am_a_cat/";
             },},{
         id: 'social-email',
         title: 'email',
