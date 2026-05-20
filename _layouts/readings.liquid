@@ -80,7 +80,10 @@ layout: page
             {% if book.tags and book.tags != '' %}
               {% assign tag_list = book.tags | split: ',' %}
               {% for tag in tag_list %}
-                <span class="tag-badge">{{ tag | strip }}</span>
+                {% assign trimmed_tag = tag | strip %}
+                {% if trimmed_tag != '' %}
+                  <span class="tag-badge">{{ trimmed_tag }}</span>
+                {% endif %}
               {% endfor %}
             {% endif %}
           </td>
@@ -90,13 +93,18 @@ layout: page
                 <i class="fa-solid fa-comment-dots"></i>
               </button>
             {% endif %}
+            {% if book.slug %}
+              <a href="/books/{{ book.slug }}/" class="review-more" title="查看完整书评">
+                more
+              </a>
+            {% endif %}
           </td>
         </tr>
         {% if book.review and book.review != '' %}
         <tr class="review-row" data-status="{{ book.status }}" data-year="{{ book_year }}">
           <td colspan="7" class="td-review-content">
             <div class="review-content">
-              {{ book.review }}
+              {{ book.review | newline_to_br }}
             </div>
           </td>
         </tr>
