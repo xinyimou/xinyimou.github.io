@@ -131,11 +131,6 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/frog/";
-            },},{id: "books-воскресение-复活",
-          title: 'Воскресение (复活)',
-          description: "",
-          section: "Books",handler: () => {
-              window.location.href = "/books/resurrection/";
             },},{id: "books-檀香刑",
           title: '檀香刑',
           description: "",
@@ -166,6 +161,26 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/plague/";
+            },},{id: "books-两京十五日",
+          title: '两京十五日',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/2_capital/";
+            },},{id: "books-我是猫",
+          title: '我是猫',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/i_am_a_cat/";
+            },},{id: "books-秦腔",
+          title: '秦腔',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/qinqiang/";
+            },},{id: "books-воскресение-复活",
+          title: 'Воскресение (复活)',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/resurrection/";
             },},{id: "books-siddhartha-悉达多",
           title: 'Siddhartha (悉达多)',
           description: "",
@@ -176,21 +191,6 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/stranger/";
-            },},{id: "books-两京十五日",
-          title: '两京十五日',
-          description: "",
-          section: "Books",handler: () => {
-              window.location.href = "/books/2_capital/";
-            },},{id: "books-秦腔",
-          title: '秦腔',
-          description: "",
-          section: "Books",handler: () => {
-              window.location.href = "/books/qinqiang/";
-            },},{id: "books-我是猫",
-          title: '我是猫',
-          description: "",
-          section: "Books",handler: () => {
-              window.location.href = "/books/i_am_a_cat/";
             },},{
         id: 'social-email',
         title: 'email',
