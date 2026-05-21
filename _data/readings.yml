@@ -210,7 +210,7 @@
 
 - title: "L'Étranger (局外人)"
   author: "Albert Camus"
-  started: "2026-2-8"
+  started: "2026-5-20"
   finished: ""
   status: "Queued"
   tags: "novel, fiction"
@@ -229,11 +229,11 @@
 - title: "秦腔"
   author: "贾平凹"
   started: "2026-4-8"
-  finished: ""
+  finished: "2026-5-20"
   status: "Finished"
   tags: "novel, fiction"
   slug: "qinqiang"
-  review: ""
+  review: "清风街上居民的故事。一个大家族，农民与土地的羁绊，守旧与变革的冲突，新旧时态的交替。"
 
 - title: "中县干部"
   author: "冯军旗"

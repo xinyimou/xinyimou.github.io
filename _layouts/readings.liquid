@@ -68,7 +68,7 @@ layout: page
         {% if book.started and book.started != "" %}
           {% assign book_year = book.started | slice: 0, 4 %}
         {% endif %}
-        <tr class="book-row" data-status="{{ book.status }}" data-year="{{ book_year }}">
+        <tr class="book-row" data-status="{{ book.status }}" data-year="{{ book_year }}" data-started="{{ book.started }}">
           <td class="td-status">
             <span class="status-badge status-{{ book.status | downcase }}">{{ book.status }}</span>
           </td>
@@ -122,9 +122,56 @@ layout: page
     const bookRows = document.querySelectorAll('.book-row');
     const reviewRows = document.querySelectorAll('.review-row');
     const reviewToggles = document.querySelectorAll('.review-toggle');
+    const tableBody = document.querySelector('.readings-table tbody');
 
     let currentFilter = 'all';
     let currentYear = 'all';
+
+    function parseStartedDate(value) {
+      if (!value) {
+        return null;
+      }
+      const parts = value.split('-');
+      if (parts.length < 3) {
+        return null;
+      }
+      const year = parseInt(parts[0], 10);
+      const month = parseInt(parts[1], 10);
+      const day = parseInt(parts[2], 10);
+      if (!year || !month || !day) {
+        return null;
+      }
+      return new Date(year, month - 1, day).getTime();
+    }
+
+    function sortRowsByStarted() {
+      const items = Array.from(bookRows).map(row => {
+        const reviewRow = row.nextElementSibling && row.nextElementSibling.classList.contains('review-row')
+          ? row.nextElementSibling
+          : null;
+        return {
+          bookRow: row,
+          reviewRow,
+          started: parseStartedDate(row.dataset.started)
+        };
+      });
+
+      items.sort((a, b) => {
+        if (a.started === null && b.started === null) return 0;
+        if (a.started === null) return 1;
+        if (b.started === null) return -1;
+        return b.started - a.started;
+      });
+
+      items.forEach(item => {
+        tableBody.appendChild(item.bookRow);
+        if (item.reviewRow) {
+          tableBody.appendChild(item.reviewRow);
+        }
+      });
+    }
+
+    sortRowsByStarted();
 
     function updateVisibility() {
       bookRows.forEach(row => {
